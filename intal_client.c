@@ -1,20 +1,3 @@
-//A sample client for intal.h
-
-//Expected output for this client:
-/*
-First intal: 4999
-Second intal: 2001
-Two intals after increment and decrement:
-5000
-2000
-Max of two intals: 5000
-Sum: 7000
-Diff: 3000
-Product: 10000000
-Quotient: 2
-5000 ^ 2: 25000000
-*/
-
 #include <stdio.h>
 #include "intal.h"
 
@@ -29,57 +12,45 @@ char *str2 ="1384789726902020528593888400273850110424837794816845165486174651416
 	void *quotient;
 	void *exp;
 
-	intal1 = intal_create(str1); //4999
-	intal2 = intal_create(str2); //2001
+	intal1 = intal_create(str1); 
+	intal2 = intal_create(str2); 
 
-	printf("First intal: %s\n", intal2str(intal1)); //4999
-	printf("Second intal: %s\n", intal2str(intal2)); //2001
+	printf("First intal: %s\n", intal2str(intal1)); 
+	printf("Second intal: %s\n", intal2str(intal2)); 
 
-  //intal1 = intal_increment(intal1); //5000
-  //intal2 = intal_decrement(intal2); //2000
+        intal1 = intal_increment(intal1); 
+        intal2 = intal_decrement(intal2); 
 
 	printf("Two intals after increment and decrement:\n");
-	printf("%s\n", intal2str(intal1)); //5000
-  printf("%s\n", intal2str(intal2)); //2000
+	printf("%s\n", intal2str(intal1)); 
+        printf("%s\n", intal2str(intal2)); 
 
-	printf("Max of two intals: %s\n", //5000
+	printf("Max of two intals: %s\n", 
 		(intal_compare(intal1, intal2) > 0) ? intal2str(intal1) : intal2str(intal2));
-	//intal_destroy(product);
-	sum = intal_add(intal1, intal2); //7000
+	sum = intal_add(intal1, intal2); 
 	printf("Sum: %s\n", intal2str(sum));
-	intal_destroy(sum);
-
 
 	diff = intal_diff(intal1, intal2);
 	printf("diff: %s\n", intal2str(diff));
-	intal_destroy(diff);
 
-	product = intal_multiply(intal1, intal2); //10000000
+	product = intal_multiply(intal1, intal2); 
 	printf("Product: %s\n", intal2str(product));
 	intal_destroy(product);
-/*
-	char *str3="9";
-  void *intal3 = intal_create(str3);*/
 
-	quotient = intal_divide(intal1, intal2); //2
+	quotient = intal_divide(intal1, intal2); 
 	printf("Quotient: %s\n", intal2str(quotient));
-  //intal_destroy(quotient);
-	exp = intal_pow(intal1, quotient); //5000^2 = 25000000
+  
+	exp = intal_pow(intal1, quotient);
 	printf("%s ^ %s: %s\n", intal2str(intal1), intal2str(quotient), intal2str(exp));
-  intal_destroy(exp);
-	//intal_destroy(quotient);
 
 
-
-
-//Make sure you destroy all the intals created.
-	//intal_destroy(sum);
-	//intal_destroy(diff);
-	//intal_destroy(product);
-	//intal_destroy(quotient);
-	//intal_destroy(exp);
-	//intal_destroy(intal1);
-	//intal_destroy(intal2);
+	intal_destroy(sum);
+	intal_destroy(diff);
+	intal_destroy(product);
+	intal_destroy(quotient);
+	intal_destroy(exp);
+	intal_destroy(intal1);
+	intal_destroy(intal2);
 
 	return 0;
 }
