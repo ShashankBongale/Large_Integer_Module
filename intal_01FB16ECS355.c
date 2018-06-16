@@ -206,7 +206,7 @@ else
    string[j++]=temp_string[i];
   string[j]='\0';
 }
-free(temp_string);
+//free(temp_string);
 }
 
 //printf("new string lenght=%d\n",strlen(string));
@@ -326,7 +326,7 @@ void* intal_add(void* intal1, void* intal2)
          add_string[j++]=temp_string[i];
         add_string[j]='\0';
       }
-        free(temp);
+        //free(temp);
     }
     else
     {
@@ -375,7 +375,7 @@ void* intal_add(void* intal1, void* intal2)
                add_string[j++]=temp_string[i];
               add_string[j]='\0';
             }
-         free(temp);
+         //free(temp);
     }
   }
 //  free(temp_p);
@@ -541,7 +541,7 @@ void* intal_diff(void *intal1,void *intal2)
     for(i=1;i<len+1;i++)
      diff[i-1]=diff[i];
   }
-  free(string2_new);
+  //free(string2_new);
   //printf("diff finished");
   return (void *)diff;
 }
@@ -660,8 +660,8 @@ if(add_char[0]=='0' && strlen(add_char)!=1)
    add_char[i-1]=add_char[i];
 }
 //printf("%s\n",add_char);
-free(temp);
-free(temp2);
+//free(temp);
+//free(temp2);
 return (void *)add_char;
 }
 void* intal_pow(void* intal1, void* intal2)
@@ -700,6 +700,7 @@ void* intal_pow(void* intal1, void* intal2)
     }
   }
   //printf("%s\n",product);
+  //printf("END OF POW");
   return (void *)product;
 }
 void* intal_divide(void* intal1,void* intal2)
@@ -731,6 +732,7 @@ void* intal_divide(void* intal1,void* intal2)
         rem[len+1]='\0';
      }
      quo[k]='\0';
+//	printf("SDfs");
      return rem_zero((void*)(quo));
 }
 void* rem_zero(void* intal1)
